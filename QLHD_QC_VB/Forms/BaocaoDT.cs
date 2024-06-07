@@ -260,9 +260,9 @@ namespace QLHD_QC_VB.Forms
                 DataGridView.DataSource = tblbaocaodt;
                 load_data();
                 btninbaocao.Enabled = true;
+                txttongtien.Text = Convert.ToString(Class.Functions.GetFieldValues("select coalesce(sum(doanhthu),0) as doanhthu from(" + sql + ") a"));
+                lblbangchu.Text = "Bằng chữ: " + Class.Functions.ConvertNumberToString(txttongtien.Text);
             }
-            txttongtien.Text = Convert.ToString(Class.Functions.GetFieldValues("select coalesce(sum(doanhthu),0) as doanhthu from(" + sql + ") a"));
-            lblbangchu.Text = "Bằng chữ: " + Class.Functions.ConvertNumberToString(txttongtien.Text);
         }
         private void load_data()
         {
