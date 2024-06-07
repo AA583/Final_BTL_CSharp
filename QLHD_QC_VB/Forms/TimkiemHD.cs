@@ -9,8 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ToolTip = System.Windows.Forms.ToolTip;
-
 
 namespace QLHD_QC_VB.Forms
 {
@@ -25,11 +23,6 @@ namespace QLHD_QC_VB.Forms
         private void frmtimkiemhd_Load(object sender, EventArgs e)
         {
             resetvalues();
-            msktungay.Mask = "00/00/0000";
-            msktoingay.Mask = "00/00/0000";
-            // Xử lý sự kiện khi nhập giá trị không hợp lệ
-            msktoingay.MaskInputRejected += new MaskInputRejectedEventHandler(msktoingay_MaskInputRejected);
-            msktungay.MaskInputRejected += new MaskInputRejectedEventHandler(msktungay_MaskInputRejected);
             DataGridView.DataSource = null;
             string tiento;
             tiento = "select distinct(SUBSTRING(mahd,1,2)) as tiento from (" +
@@ -43,7 +36,6 @@ namespace QLHD_QC_VB.Forms
             Class.Functions.Fillcombo(tiento, cboloaihd, "tiento", "tiento");
             cboloaihd.SelectedIndex = -1;
         }
-
         private void resetvalues()
         {
             foreach (Control ctl in this.Controls)
@@ -62,98 +54,25 @@ namespace QLHD_QC_VB.Forms
 
         private void btntimkiem_Click(object sender, EventArgs e)
         {
-            // Xử lý sự kiện khi nhập giá trị không hợp lệ
-            if (!string.IsNullOrWhiteSpace(msktungay.Text))
-            {
-                if (DateTime.TryParseExact(msktungay.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime enteredDate))
-                {
-                    // Kiểm tra năm hợp lệ (từ 1990 đến năm hiện tại)
-                    if (enteredDate.Year < 1990 || enteredDate.Year > DateTime.Now.Year)
-                    {
-                        ShowErrorMessage("Năm không hợp lệ (từ 1990 đến năm hiện tại)");
-                        return;
-                    }
-
-                    // Kiểm tra tháng hợp lệ (từ 1 đến 12)
-                    if (enteredDate.Month < 1 || enteredDate.Month > 12)
-                    {
-                        ShowErrorMessage("Tháng không hợp lệ (từ 1 đến 12)");
-                        return;
-                    }
-
-                    // Kiểm tra ngày nhập vào phải nhỏ hơn hoặc bằng ngày hiện tại
-                    if (enteredDate > DateTime.Now)
-                    {
-                        ShowErrorMessage("Ngày nhập vào phải nhỏ hơn hoặc bằng ngày hiện tại");
-                        return;
-                    }
-
-                    // Nếu đến đây thì ngày hợp lệ, thực hiện công việc tiếp theo
-                    // ...
-                }
-                else
-                {
-                    ShowErrorMessage("Ngày không hợp lệ, vui lòng nhập đúng định dạng dd/MM/yyyy");
-                }
-            }
-            else
-            {
-                ShowErrorMessage("Vui lòng nhập ngày");
-            }
-
-            if (!string.IsNullOrWhiteSpace(msktoingay.Text))
-            {
-                if (DateTime.TryParseExact(msktoingay.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime enteredDate))
-                {
-                    // Kiểm tra năm hợp lệ (từ 1990 đến năm hiện tại)
-                    if (enteredDate.Year < 1990 || enteredDate.Year > DateTime.Now.Year)
-                    {
-                        ShowErrorMessage1("Năm không hợp lệ (từ 1990 đến năm hiện tại)");
-                        return;
-                    }
-
-                    // Kiểm tra tháng hợp lệ (từ 1 đến 12)
-                    if (enteredDate.Month < 1 || enteredDate.Month > 12)
-                    {
-                        ShowErrorMessage1("Tháng không hợp lệ (từ 1 đến 12)");
-                        return;
-                    }
-
-                    // Kiểm tra ngày nhập vào phải nhỏ hơn hoặc bằng ngày hiện tại
-                    if (enteredDate > DateTime.Now)
-                    {
-                        ShowErrorMessage1("Ngày nhập vào phải nhỏ hơn hoặc bằng ngày hiện tại");
-                        return;
-                    }
-
-                    // Nếu đến đây thì ngày hợp lệ, thực hiện công việc tiếp theo
-                    // ...
-                }
-                else
-                {
-                    ShowErrorMessage1("Ngày không hợp lệ, vui lòng nhập đúng định dạng dd/MM/yyyy");
-                }
-            }
-            else
-            {
-                ShowErrorMessage1("Vui lòng nhập ngày");
-            }
-
-            void ShowErrorMessage(string message)
-            {
-                MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                msktungay.Text = "";
-            }
-            void ShowErrorMessage1(string message)
-            {
-                MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                msktoingay.Text = "";
-            }
             string sql;
             if ((txtmakh.Text == "") && (txtmahd.Text == "") && (txtmanv.Text == "") && (txtgiatri.Text == "")
                 && (cboloaihd.SelectedValue == null) && (msktoingay.Text == "  /  /") && (msktungay.Text == "  /  /"))
             {
                 MessageBox.Show("Hãy nhập ít nhất một điều kiện để tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (msktungay.Text != "  /  /" && !Class.Functions.Isdate(msktungay.Text))
+            {
+                MessageBox.Show("Sai định dạng ngày ký, hãy nhập lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                msktungay.Focus();
+                msktungay.Text = "";
+                return;
+            }
+            if (msktoingay.Text != "  /  /" && !Class.Functions.Isdate(msktoingay.Text))
+            {
+                MessageBox.Show("Sai định dạng ngày ký, hãy nhập lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                msktoingay.Focus();
+                msktoingay.Text = "";
                 return;
             }
             sql = "select * from (" +
@@ -242,121 +161,13 @@ namespace QLHD_QC_VB.Forms
 
         private void txtgiatri_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (Convert.ToInt32(e.KeyChar)) == 8)
+            if(((e.KeyChar >='0') && (e.KeyChar <='9')) || (Convert.ToInt32(e.KeyChar))==8)
             {
                 e.Handled = false;
             }
             else
             {
                 e.Handled = true;
-            }
-        }
-        private ToolTip toolTip1;
-        private void msktungay_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            if (toolTip1 == null)
-            {
-                // Nếu chưa, khởi tạo mới
-                toolTip1 = new ToolTip();
-            }
-            toolTip1.ToolTipTitle = "Lỗi định dạng";
-            toolTip1.Show("Vui lòng nhập đúng định dạng ngày tháng (dd/mm/yyyy)", msktungay, 0, -20, 2000);
-            if (DateTime.TryParseExact(msktungay.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime enteredDate))
-            {
-                // Kiểm tra ngày hợp lệ (từ 1 đến 31)
-                if (enteredDate.Day < 1 || enteredDate.Day > 31)
-                {
-                    MessageBox.Show("Ngày không hợp lệ (từ 1 đến 31)", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-                // Kiểm tra tháng hợp lệ (từ 1 đến 12)
-                else if (enteredDate.Month < 1 || enteredDate.Month > 12)
-                {
-                    MessageBox.Show("Tháng không hợp lệ (từ 1 đến 12)", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-                // Kiểm tra năm hợp lệ (từ 1990 đến năm hiện tại)
-                else if (enteredDate.Year < 1990 || enteredDate.Year > DateTime.Now.Year)
-                {
-                    MessageBox.Show("Năm không hợp lệ (từ 1990 đến năm hiện tại)", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-                // Kiểm tra ngày nhập vào phải nhỏ hơn ngày hiện tại
-                else if (enteredDate > DateTime.Now)
-                {
-                    MessageBox.Show("Ngày nhập vào phải nhỏ hơn ngày hiện tại", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-            }
-
-        }
-        private void msktoingay_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            if (toolTip1 == null)
-            {
-                // Nếu chưa, khởi tạo mới
-                toolTip1 = new ToolTip();
-            }
-            toolTip1.ToolTipTitle = "Lỗi định dạng";
-            toolTip1.Show("Vui lòng nhập đúng định dạng ngày tháng (dd/mm/yyyy)", msktoingay, 0, -20, 2000);
-        }
-
-        private void txtgiatri_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboloaihd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void msktungay_Enter(object sender, EventArgs e)
-        {
-            // Kiểm tra ngày nhập vào
-        }
-
-        private void msktungay_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void msktoingay_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (DateTime.TryParseExact(msktungay.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime enteredDate))
-            {
-                // Kiểm tra ngày hợp lệ (từ 1 đến 31)
-                if (enteredDate.Day < 1 || enteredDate.Day > 31)
-                {
-                    MessageBox.Show("Ngày không hợp lệ (từ 1 đến 31)", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-                // Kiểm tra tháng hợp lệ (từ 1 đến 12)
-                else if (enteredDate.Month < 1 || enteredDate.Month > 12)
-                {
-                    MessageBox.Show("Tháng không hợp lệ (từ 1 đến 12)", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-                // Kiểm tra năm hợp lệ (từ 1990 đến năm hiện tại)
-                else if (enteredDate.Year < 1990 || enteredDate.Year > DateTime.Now.Year)
-                {
-                    MessageBox.Show("Năm không hợp lệ (từ 1990 đến năm hiện tại)", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
-                // Kiểm tra ngày nhập vào phải nhỏ hơn ngày hiện tại
-                else if (enteredDate > DateTime.Now)
-                {
-                    MessageBox.Show("Ngày nhập vào phải nhỏ hơn ngày hiện tại", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    msktoingay.Text = "";
-                    return;
-                }
             }
         }
     }

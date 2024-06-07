@@ -55,10 +55,9 @@
             lbltkhd.Anchor = AnchorStyles.Top;
             lbltkhd.AutoSize = true;
             lbltkhd.Font = new Font("Segoe UI", 16.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbltkhd.Location = new Point(402, 11);
-            lbltkhd.Margin = new Padding(4, 0, 4, 0);
+            lbltkhd.Location = new Point(322, 9);
             lbltkhd.Name = "lbltkhd";
-            lbltkhd.Size = new Size(337, 45);
+            lbltkhd.Size = new Size(286, 38);
             lbltkhd.TabIndex = 0;
             lbltkhd.Text = "TÌM KIẾM HỢP ĐỒNG";
             // 
@@ -66,10 +65,9 @@
             // 
             lblmahd.Anchor = AnchorStyles.Top;
             lblmahd.AutoSize = true;
-            lblmahd.Location = new Point(32, 78);
-            lblmahd.Margin = new Padding(4, 0, 4, 0);
+            lblmahd.Location = new Point(26, 62);
             lblmahd.Name = "lblmahd";
-            lblmahd.Size = new Size(126, 25);
+            lblmahd.Size = new Size(102, 20);
             lblmahd.TabIndex = 1;
             lblmahd.Text = "Mã hợp đồng:";
             // 
@@ -77,10 +75,9 @@
             // 
             lblmanv.Anchor = AnchorStyles.Top;
             lblmanv.AutoSize = true;
-            lblmanv.Location = new Point(812, 78);
-            lblmanv.Margin = new Padding(4, 0, 4, 0);
+            lblmanv.Location = new Point(650, 62);
             lblmanv.Name = "lblmanv";
-            lblmanv.Size = new Size(122, 25);
+            lblmanv.Size = new Size(100, 20);
             lblmanv.TabIndex = 2;
             lblmanv.Text = "Mã nhân viên:";
             // 
@@ -88,10 +85,9 @@
             // 
             lbltungay.Anchor = AnchorStyles.Top;
             lbltungay.AutoSize = true;
-            lbltungay.Location = new Point(102, 146);
-            lbltungay.Margin = new Padding(4, 0, 4, 0);
+            lbltungay.Location = new Point(82, 117);
             lbltungay.Name = "lbltungay";
-            lbltungay.Size = new Size(80, 25);
+            lbltungay.Size = new Size(65, 20);
             lbltungay.TabIndex = 3;
             lbltungay.Text = "Từ ngày:";
             // 
@@ -99,10 +95,9 @@
             // 
             lbltoingay.Anchor = AnchorStyles.Top;
             lbltoingay.AutoSize = true;
-            lbltoingay.Location = new Point(355, 146);
-            lbltoingay.Margin = new Padding(4, 0, 4, 0);
+            lbltoingay.Location = new Point(284, 117);
             lbltoingay.Name = "lbltoingay";
-            lbltoingay.Size = new Size(84, 25);
+            lbltoingay.Size = new Size(69, 20);
             lbltoingay.TabIndex = 4;
             lbltoingay.Text = "Tới ngày:";
             // 
@@ -110,10 +105,9 @@
             // 
             lblgiatri.Anchor = AnchorStyles.Top;
             lblgiatri.AutoSize = true;
-            lblgiatri.Location = new Point(612, 146);
-            lblgiatri.Margin = new Padding(4, 0, 4, 0);
+            lblgiatri.Location = new Point(490, 117);
             lblgiatri.Name = "lblgiatri";
-            lblgiatri.Size = new Size(62, 25);
+            lblgiatri.Size = new Size(52, 20);
             lblgiatri.TabIndex = 5;
             lblgiatri.Text = "Giá trị:";
             // 
@@ -121,10 +115,9 @@
             // 
             lblmakh.Anchor = AnchorStyles.Top;
             lblmakh.AutoSize = true;
-            lblmakh.Location = new Point(416, 78);
-            lblmakh.Margin = new Padding(4, 0, 4, 0);
+            lblmakh.Location = new Point(333, 62);
             lblmakh.Name = "lblmakh";
-            lblmakh.Size = new Size(137, 25);
+            lblmakh.Size = new Size(112, 20);
             lblmakh.TabIndex = 6;
             lblmakh.Text = "Mã khách hàng:";
             // 
@@ -132,96 +125,81 @@
             // 
             lblloaihd.Anchor = AnchorStyles.Top;
             lblloaihd.AutoSize = true;
-            lblloaihd.Location = new Point(849, 146);
-            lblloaihd.Margin = new Padding(4, 0, 4, 0);
+            lblloaihd.Location = new Point(679, 117);
             lblloaihd.Name = "lblloaihd";
-            lblloaihd.Size = new Size(133, 25);
+            lblloaihd.Size = new Size(109, 20);
             lblloaihd.TabIndex = 7;
             lblloaihd.Text = "Loại hợp đồng:";
             // 
             // txtmahd
             // 
             txtmahd.Anchor = AnchorStyles.Top;
-            txtmahd.Location = new Point(168, 74);
-            txtmahd.Margin = new Padding(4);
+            txtmahd.Location = new Point(134, 59);
             txtmahd.Name = "txtmahd";
-            txtmahd.Size = new Size(240, 31);
+            txtmahd.Size = new Size(193, 27);
             txtmahd.TabIndex = 8;
             // 
             // txtmakh
             // 
             txtmakh.Anchor = AnchorStyles.Top;
-            txtmakh.Location = new Point(564, 74);
-            txtmakh.Margin = new Padding(4);
+            txtmakh.Location = new Point(451, 59);
             txtmakh.Name = "txtmakh";
-            txtmakh.Size = new Size(240, 31);
+            txtmakh.Size = new Size(193, 27);
             txtmakh.TabIndex = 9;
             // 
             // txtmanv
             // 
             txtmanv.Anchor = AnchorStyles.Top;
-            txtmanv.Location = new Point(945, 74);
-            txtmanv.Margin = new Padding(4);
+            txtmanv.Location = new Point(756, 59);
             txtmanv.Name = "txtmanv";
-            txtmanv.Size = new Size(240, 31);
+            txtmanv.Size = new Size(193, 27);
             txtmanv.TabIndex = 10;
             // 
             // msktungay
             // 
             msktungay.Anchor = AnchorStyles.Top;
-            msktungay.Location = new Point(191, 142);
-            msktungay.Margin = new Padding(4);
+            msktungay.Location = new Point(153, 114);
             msktungay.Mask = "00/00/0000";
             msktungay.Name = "msktungay";
-            msktungay.Size = new Size(155, 31);
+            msktungay.Size = new Size(125, 27);
             msktungay.TabIndex = 11;
             msktungay.ValidatingType = typeof(DateTime);
-            msktungay.MaskInputRejected += msktungay_MaskInputRejected;
-            msktungay.Enter += msktungay_Enter;
-            msktungay.Leave += msktungay_Leave;
             // 
             // msktoingay
             // 
             msktoingay.Anchor = AnchorStyles.Top;
-            msktoingay.Location = new Point(449, 142);
-            msktoingay.Margin = new Padding(4);
+            msktoingay.Location = new Point(359, 114);
             msktoingay.Mask = "00/00/0000";
             msktoingay.Name = "msktoingay";
-            msktoingay.Size = new Size(155, 31);
+            msktoingay.Size = new Size(125, 27);
             msktoingay.TabIndex = 12;
             msktoingay.ValidatingType = typeof(DateTime);
-            msktoingay.MaskInputRejected += msktoingay_MaskInputRejected;
-            msktoingay.MouseClick += msktoingay_MouseClick;
             // 
             // txtgiatri
             // 
             txtgiatri.Anchor = AnchorStyles.Top;
-            txtgiatri.Location = new Point(685, 142);
-            txtgiatri.Margin = new Padding(4);
+            txtgiatri.Location = new Point(548, 114);
             txtgiatri.Name = "txtgiatri";
-            txtgiatri.Size = new Size(155, 31);
+            txtgiatri.Size = new Size(125, 27);
             txtgiatri.TabIndex = 13;
-            txtgiatri.TextChanged += txtgiatri_TextChanged;
             txtgiatri.KeyPress += txtgiatri_KeyPress;
             // 
             // DataGridView
             // 
             DataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView.Location = new Point(182, 221);
-            DataGridView.Margin = new Padding(4);
+            DataGridView.Location = new Point(146, 177);
             DataGridView.Name = "DataGridView";
             DataGridView.RowHeadersWidth = 51;
-            DataGridView.Size = new Size(856, 251);
+            DataGridView.Size = new Size(685, 201);
             DataGridView.TabIndex = 15;
             // 
             // btntimkiem
             // 
             btntimkiem.Anchor = AnchorStyles.Bottom;
-            btntimkiem.Location = new Point(308, 498);
-            btntimkiem.Margin = new Padding(4);
+            btntimkiem.Location = new Point(246, 398);
             btntimkiem.Name = "btntimkiem";
-            btntimkiem.Size = new Size(118, 36);
+            btntimkiem.Size = new Size(94, 29);
             btntimkiem.TabIndex = 16;
             btntimkiem.Text = "Tìm kiếm";
             btntimkiem.UseVisualStyleBackColor = true;
@@ -230,10 +208,9 @@
             // btntimlai
             // 
             btntimlai.Anchor = AnchorStyles.Bottom;
-            btntimlai.Location = new Point(552, 498);
-            btntimlai.Margin = new Padding(4);
+            btntimlai.Location = new Point(442, 398);
             btntimlai.Name = "btntimlai";
-            btntimlai.Size = new Size(118, 36);
+            btntimlai.Size = new Size(94, 29);
             btntimlai.TabIndex = 17;
             btntimlai.Text = "Tìm lại";
             btntimlai.UseVisualStyleBackColor = true;
@@ -242,10 +219,9 @@
             // btndong
             // 
             btndong.Anchor = AnchorStyles.Bottom;
-            btndong.Location = new Point(795, 498);
-            btndong.Margin = new Padding(4);
+            btndong.Location = new Point(636, 398);
             btndong.Name = "btndong";
-            btndong.Size = new Size(118, 36);
+            btndong.Size = new Size(94, 29);
             btndong.TabIndex = 18;
             btndong.Text = "Đóng";
             btndong.UseVisualStyleBackColor = true;
@@ -255,18 +231,16 @@
             // 
             cboloaihd.Anchor = AnchorStyles.Top;
             cboloaihd.FormattingEnabled = true;
-            cboloaihd.Location = new Point(992, 142);
-            cboloaihd.Margin = new Padding(4);
+            cboloaihd.Location = new Point(794, 114);
             cboloaihd.Name = "cboloaihd";
-            cboloaihd.Size = new Size(102, 33);
+            cboloaihd.Size = new Size(82, 28);
             cboloaihd.TabIndex = 19;
-            cboloaihd.SelectedIndexChanged += cboloaihd_SelectedIndexChanged;
             // 
             // frmtimkiemhd
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1220, 560);
+            ClientSize = new Size(976, 448);
             Controls.Add(cboloaihd);
             Controls.Add(btndong);
             Controls.Add(btntimlai);
@@ -286,7 +260,6 @@
             Controls.Add(lblmanv);
             Controls.Add(lblmahd);
             Controls.Add(lbltkhd);
-            Margin = new Padding(4);
             Name = "frmtimkiemhd";
             Text = "Tìm kiếm hợp đồng";
             Load += frmtimkiemhd_Load;
