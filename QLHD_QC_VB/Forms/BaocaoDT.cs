@@ -256,7 +256,6 @@ namespace QLHD_QC_VB.Forms
             }
             else
             {
-                MessageBox.Show("Có " + tblbaocaodt.Rows.Count + " bản ghi thỏa mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataGridView.DataSource = tblbaocaodt;
                 load_data();
                 btninbaocao.Enabled = true;
